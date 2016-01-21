@@ -67,7 +67,7 @@ public class PlainSender implements MessageSender {
 		if (dt == null) {
 			dt = new Date();
 		}
-		
+		 
 		// Write time
 		appendSyslogTimestamp(dt, out);
 		out.append(" ");
@@ -80,8 +80,9 @@ public class PlainSender implements MessageSender {
 			out.append("- ");
 		}
 		
+		
 		// Write service
-		Object facility = msg.getField("facility");
+		Object facility = msg.getField("PNG_InstanceId");
 		if (facility != null) {
 			out.append(facility.toString()).append(" ");
 		} else {
@@ -89,7 +90,7 @@ public class PlainSender implements MessageSender {
 		}
 		
 		// MSGID
-		Object username = msg.getField("username");
+		Object username = msg.getField("PNG_Logger");
 		if (username != null) {
 			out.append(username.toString()).append(" ");
 		} else {
